@@ -9,8 +9,10 @@ import initialContacts from "../../contacts.json";
 const App = () => {
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem("saved-contacts");
-    if (savedContacts !== "[]") {
-      return JSON.parse(savedContacts);
+    if (savedContacts !== null) {
+      if (savedContacts !== "[]") {
+        return JSON.parse(savedContacts);
+      }
     }
 
     return initialContacts;
